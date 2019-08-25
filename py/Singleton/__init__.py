@@ -1,6 +1,7 @@
-class saludar:
-    def say(self):
-        print("HOLA")
+import Singleton.single
 
-s = saludar()
-s.say()
+obj1 = single()
+obj2 = single()
+obj1 is obj2
+
+
