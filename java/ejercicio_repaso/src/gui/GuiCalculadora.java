@@ -21,6 +21,7 @@ public class GuiCalculadora extends javax.swing.JFrame {
     public GuiCalculadora() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
         lblPantalla.setText("");
 
     }
