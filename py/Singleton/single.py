@@ -5,7 +5,6 @@ class Single(object):
             print("Objeto creado")
         else:
             print("El objeto ya existe, anulando")
-
         return cls.instance
 
 import sys
@@ -16,5 +15,3 @@ while x!="0":
         s = Single()
     if x is "0":
         sys.exit()
-
-
