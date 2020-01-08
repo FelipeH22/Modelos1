@@ -1,55 +1,173 @@
 package gui;
+
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class recreacion extends JFrame implements KeyListener {
+public class recreacion extends JFrame{
+    private final int AnchoVentana = 500;
+    private final int AltoVentana = 500;
+    Thread hilo;
+    boolean inicio = false;
+    BufferedImage bi;
+    Image img;
+    Toolkit h = Toolkit.getDefaultToolkit();
+    Graphics2D g2d;
+    int Incremento = 0;
+    int incx = 50;
+    int incy = 50;
+    boolean arriba=true;
+    boolean abajo=true;
+    boolean izquierda=true;
+    boolean derecha=true;
+    boolean ataca=true;
+    public static String eleccion;
+
+
+    public void arriba(){
+        abajo=true;
+        izquierda=true;
+        derecha=true;
+        ataca=true;
+    }
+    public void abajo(){
+        arriba=true;
+        izquierda=true;
+        derecha=true;
+        ataca=true;
+    }
+    public void izquierda(){
+        abajo=true;
+        arriba=true;
+        derecha=true;
+        ataca=true;
+    }
+    public void derecha(){
+        abajo=true;
+        izquierda=true;
+        arriba=true;
+        ataca=true;
+    }
 
     public recreacion() {
-     init();
+        setSize(AnchoVentana,AltoVentana);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        setTitle("Animation");
+//		hilo = new Thread(this);
+        bi = new BufferedImage(AnchoVentana, AltoVentana, BufferedImage.TYPE_INT_RGB);
+
+//		hilo.start();
+        inicio = true;
+
+        addKeyListener(new KeyAdapter() {
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+
+            if(e.getKeyCode()==KeyEvent.VK_UP){
+                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_arriba.png"));
+
+                    Incremento++;
+
+                    if(Incremento>4){
+                        Incremento = 0;
+                    }
+                if(arriba==true){
+                    incy = incy-4;
+                    if(incy<20){
+                        incy = incy +4;
+                    }
+                }
+            }
+
+
+            if(e.getKeyCode()==KeyEvent.VK_DOWN){
+                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_abajo.png"));
+
+                    Incremento++;
+
+                    if(Incremento>4){
+                            Incremento = 0;
+                    }
+                if(abajo==true){
+                    incy = incy+4;
+                    if(incy>getHeight()-40){
+                            incy = incy -4;
+                    }
+                }
+            }
+            
+            if(e.getKeyCode()==KeyEvent.VK_RIGHT){
+                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_derecha.png"));
+                Incremento++;
+
+                if(Incremento>4){
+                        Incremento = 0;
+                }
+                if(derecha==true){
+                    incx=incx+4;
+                    if(incx>getWidth()-15){
+                            incx = incx-10;
+                    }
+                }
+
+            }
+            
+            if(e.getKeyCode()==KeyEvent.VK_LEFT){					
+                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_izquierda.png"));
+                Incremento++;
+
+
+                if(Incremento>4){
+                        Incremento = 0;
+                }
+                if(izquierda=true){
+                    incx=incx-4;
+                    if(incx<-4){
+                            incx=incx+4;
+                    }
+                }
+            }
+            
+            if(e.getKeyCode()==KeyEvent.VK_C){					
+                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_ataca.png"));
+                Incremento=Incremento+4;
+                if(Incremento>4){
+                        Incremento = 0;
+                }
+            }
+
+        }
+        });
+        setFocusable(true);
     }
 
-    private void init() {
-     setLayout(null);
-     setTitle("Recreación");
-     setVisible(true);
-     setSize(700, 700);
-     setLocationRelativeTo(null);
-     setDefaultCloseOperation(EXIT_ON_CLOSE);
-     this.addKeyListener(this);
-    }
+
 
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void paint(Graphics g) {
+            g.drawImage(bi,0,0,null);
+            int mxA = (Incremento%5)*40;
+            int myA = (Incremento/5)*40;
+            g2d = bi.createGraphics();
+            g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
+            g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+40, myA+40, this);
 
-     int key = e.getKeyCode();
-
-     if (key == KeyEvent.VK_LEFT) {
-
-      System.out.println("Moviendo a la izquierda");
-     }
-     if (key == KeyEvent.VK_RIGHT) {
-
-      System.out.println("Moviendo a la derecha");
-     }
-     if (key == KeyEvent.VK_UP) {
-
-      System.out.println("Saltando");
-     }
-     if (key == KeyEvent.VK_C) {
-
-      System.out.println("Atacando");
-     }
-
+            repaint();
     }
 
-    @Override
-    public void keyReleased(KeyEvent e) {
-    }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
+    public static void inicia() {
+        new recreacion().setVisible(true);            
     }
 
 }

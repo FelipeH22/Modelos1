@@ -10,8 +10,11 @@ import javax.swing.*;
 public class gui extends javax.swing.JFrame {
 
     AbstractFactory exe = new AbstractFactory();
+    String seleccion;
+    
     public gui() {
         initComponents();
+        seleccion = this.jComboBox1.getSelectedItem().toString();
         this.setLocationRelativeTo(null);
     }
 
@@ -134,8 +137,8 @@ public class gui extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String seleccion;
-        seleccion = this.jComboBox1.getSelectedItem().toString();
+        
+        
         
         if(seleccion.equals("Orco"))
         {
@@ -143,9 +146,9 @@ public class gui extends javax.swing.JFrame {
             jLabel9.setText(productos.CuerpoOrco.Habilidad());
             jLabel7.setText(productos.ArmaOrco.Arma());
             jLabel8.setText(productos.ArmaduraOrco.Armadura());
-            jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/assets/armadura_orco.png")));
-            jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/assets/arma_orco.png")));
-            jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/assets/orco.png")));
+            jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/partes_personajes/armadura_orco.png")));
+            jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/partes_personajes/arma_orco.png")));
+            jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/partes_personajes/orco.png")));
         }
         if(seleccion.equals("Enano"))
         {
@@ -153,9 +156,9 @@ public class gui extends javax.swing.JFrame {
             jLabel9.setText(productos.CuerpoEnano.Habilidad());
             jLabel7.setText(productos.ArmaEnano.Arma());
             jLabel8.setText(productos.ArmaduraEnano.Armadura());
-            jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/assets/armadura_enano.png")));
-            jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/assets/arma_enano.png")));
-            jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/assets/enano.png")));
+            jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/partes_personajes/armadura_enano.png")));
+            jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/partes_personajes/arma_enano.png")));
+            jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/partes_personajes/enano.png")));
         }
         if(seleccion.equals("Humano"))
         {
@@ -163,9 +166,9 @@ public class gui extends javax.swing.JFrame {
             jLabel9.setText(productos.CuerpoHumano.Habilidad());
             jLabel7.setText(productos.ArmaHumano.Arma());
             jLabel8.setText(productos.ArmaduraHumano.Armadura());
-            jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/assets/armadura_humano.png")));
-            jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/assets/arma_humano.png")));
-            jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/assets/humano.png")));
+            jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/partes_personajes/armadura_humano.png")));
+            jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/partes_personajes/arma_humano.png")));
+            jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/partes_personajes/humano.png")));
         }
         if(seleccion.equals("Elfo"))
         {
@@ -173,9 +176,9 @@ public class gui extends javax.swing.JFrame {
             jLabel9.setText(productos.CuerpoElfo.Habilidad());
             jLabel7.setText(productos.ArmaElfo.Arma());
             jLabel8.setText(productos.ArmaduraElfo.Armadura());
-            jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/assets/armadura_elfo.png")));
-            jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/assets/arma_elfo.png")));
-            jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/assets/elfo.png")));
+            jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/partes_personajes/armadura_elfo.png")));
+            jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/partes_personajes/arma_elfo.png")));
+            jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/partes_personajes/elfo.png")));
         }
         exe.cuerpo=exe.fabrica.CrearCuerpo();
         exe.arma = exe.fabrica.CrearArma();
@@ -185,7 +188,8 @@ public class gui extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         System.out.println("ABRIR RECREACIÓN");
-        recreacion r = new recreacion();        
+        recreacion.eleccion = this.seleccion;
+        recreacion.inicia();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
