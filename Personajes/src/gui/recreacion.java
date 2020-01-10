@@ -7,9 +7,9 @@ import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import javax.swing.JButton;
 
 import javax.swing.JFrame;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class recreacion extends JFrame{
     private final int AnchoVentana = 500;
@@ -58,14 +58,10 @@ public class recreacion extends JFrame{
 
     public recreacion() {
         setSize(AnchoVentana,AltoVentana);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
         setTitle("Animation");
-//		hilo = new Thread(this);
         bi = new BufferedImage(AnchoVentana, AltoVentana, BufferedImage.TYPE_INT_RGB);
-
-//		hilo.start();
         inicio = true;
 
         addKeyListener(new KeyAdapter() {
@@ -139,7 +135,7 @@ public class recreacion extends JFrame{
             }
             
             if(e.getKeyCode()==KeyEvent.VK_C){					
-                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_ataca_2.png"));
+                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_ataca.png"));
                 Incremento=Incremento+5;
                 if(Incremento>5){
                         Incremento = 0;
@@ -154,15 +150,14 @@ public class recreacion extends JFrame{
 
 
     @Override
-    public void paint(Graphics g) {
-            g.drawImage(bi,0,0,null);
-            int mxA = (Incremento%6)*64;
-            int myA = (Incremento/6)*52;
-            g2d = bi.createGraphics();
-            g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
-            g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+64, myA+52, this);
-
-            repaint();
+    public void paint(Graphics g) {        
+        g.drawImage(bi,0,0,null);
+        int mxA = (Incremento%6)*64;
+        int myA = (Incremento/6)*52;
+        g2d = bi.createGraphics();
+        g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
+        g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+64, myA+52, this);
+        repaint();
     }
 
 

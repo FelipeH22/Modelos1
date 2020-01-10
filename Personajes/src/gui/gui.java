@@ -14,7 +14,7 @@ public class gui extends javax.swing.JFrame {
     
     public gui() {
         initComponents();
-        
+        seleccion = this.jComboBox1.getSelectedItem().toString();
         this.setLocationRelativeTo(null);
     }
 
@@ -133,12 +133,12 @@ public class gui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        seleccion = this.jComboBox1.getSelectedItem().toString();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-        seleccion = this.jComboBox1.getSelectedItem().toString();
+        
         
         if(seleccion.equals("Orco"))
         {
