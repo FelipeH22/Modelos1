@@ -74,7 +74,7 @@ public class recreacion extends JFrame{
         public void keyPressed(KeyEvent e) {
 
             if(e.getKeyCode()==KeyEvent.VK_UP){
-                img = h.getImage(this.getClass().getResource("/assets/"+"Enano"+"_arriba.png"));
+                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_arriba.png"));
 
                     Incremento++;
 
@@ -91,7 +91,7 @@ public class recreacion extends JFrame{
 
 
             if(e.getKeyCode()==KeyEvent.VK_DOWN){
-                img = h.getImage(this.getClass().getResource("/assets/"+"Enano"+"_abajo.png"));
+                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_abajo.png"));
 
                     Incremento++;
 
@@ -107,7 +107,7 @@ public class recreacion extends JFrame{
             }
             
             if(e.getKeyCode()==KeyEvent.VK_RIGHT){
-                img = h.getImage(this.getClass().getResource("/assets/"+"Enano"+"_derecha.png"));
+                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_derecha.png"));
                 Incremento++;
 
                 if(Incremento>4){
@@ -123,7 +123,7 @@ public class recreacion extends JFrame{
             }
             
             if(e.getKeyCode()==KeyEvent.VK_LEFT){					
-                img = h.getImage(this.getClass().getResource("/assets/"+"Enano"+"_izquierda.png"));
+                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_izquierda.png"));
                 Incremento++;
 
 
@@ -139,7 +139,7 @@ public class recreacion extends JFrame{
             }
             
             if(e.getKeyCode()==KeyEvent.VK_C){					
-                img = h.getImage(this.getClass().getResource("/assets/"+"Enano"+"_ataca_2.png"));
+                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_ataca_2.png"));
                 Incremento=Incremento+5;
                 if(Incremento>5){
                         Incremento = 0;

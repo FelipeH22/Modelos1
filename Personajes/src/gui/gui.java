@@ -10,11 +10,11 @@ import javax.swing.*;
 public class gui extends javax.swing.JFrame {
 
     AbstractFactory exe = new AbstractFactory();
-    String seleccion;
+     String seleccion;
     
     public gui() {
         initComponents();
-        seleccion = this.jComboBox1.getSelectedItem().toString();
+        
         this.setLocationRelativeTo(null);
     }
 
@@ -137,8 +137,8 @@ public class gui extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        
+       
+        seleccion = this.jComboBox1.getSelectedItem().toString();
         
         if(seleccion.equals("Orco"))
         {
