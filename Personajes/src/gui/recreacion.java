@@ -74,7 +74,7 @@ public class recreacion extends JFrame{
         public void keyPressed(KeyEvent e) {
 
             if(e.getKeyCode()==KeyEvent.VK_UP){
-                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_arriba.png"));
+                img = h.getImage(this.getClass().getResource("/assets/"+"Enano"+"_arriba.png"));
 
                     Incremento++;
 
@@ -91,7 +91,7 @@ public class recreacion extends JFrame{
 
 
             if(e.getKeyCode()==KeyEvent.VK_DOWN){
-                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_abajo.png"));
+                img = h.getImage(this.getClass().getResource("/assets/"+"Enano"+"_abajo.png"));
 
                     Incremento++;
 
@@ -107,7 +107,7 @@ public class recreacion extends JFrame{
             }
             
             if(e.getKeyCode()==KeyEvent.VK_RIGHT){
-                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_derecha.png"));
+                img = h.getImage(this.getClass().getResource("/assets/"+"Enano"+"_derecha.png"));
                 Incremento++;
 
                 if(Incremento>4){
@@ -123,7 +123,7 @@ public class recreacion extends JFrame{
             }
             
             if(e.getKeyCode()==KeyEvent.VK_LEFT){					
-                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_izquierda.png"));
+                img = h.getImage(this.getClass().getResource("/assets/"+"Enano"+"_izquierda.png"));
                 Incremento++;
 
 
@@ -139,9 +139,9 @@ public class recreacion extends JFrame{
             }
             
             if(e.getKeyCode()==KeyEvent.VK_C){					
-                img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_ataca.png"));
-                Incremento=Incremento+4;
-                if(Incremento>4){
+                img = h.getImage(this.getClass().getResource("/assets/"+"Enano"+"_ataca_2.png"));
+                Incremento=Incremento+5;
+                if(Incremento>5){
                         Incremento = 0;
                 }
             }
@@ -156,11 +156,11 @@ public class recreacion extends JFrame{
     @Override
     public void paint(Graphics g) {
             g.drawImage(bi,0,0,null);
-            int mxA = (Incremento%5)*40;
-            int myA = (Incremento/5)*40;
+            int mxA = (Incremento%6)*64;
+            int myA = (Incremento/6)*52;
             g2d = bi.createGraphics();
             g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
-            g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+40, myA+40, this);
+            g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+64, myA+52, this);
 
             repaint();
     }
