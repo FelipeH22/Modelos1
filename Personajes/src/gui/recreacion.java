@@ -7,7 +7,6 @@ import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import javax.swing.JButton;
 
 import javax.swing.JFrame;
 
@@ -64,7 +63,7 @@ public class recreacion extends JFrame{
         setSize(AnchoVentana,AltoVentana);
         setResizable(false);
         setLocationRelativeTo(null);
-        setTitle("Animation");
+        setTitle("Recreación");
         bi = new BufferedImage(AnchoVentana, AltoVentana, BufferedImage.TYPE_INT_RGB);
         inicio = true;
 
