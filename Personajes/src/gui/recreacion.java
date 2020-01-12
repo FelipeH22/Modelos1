@@ -28,6 +28,10 @@ public class recreacion extends JFrame{
     boolean izquierda=true;
     boolean derecha=true;
     boolean ataca=true;
+    boolean ataca_orco=false;
+    boolean ataca_elfo=false;
+    boolean ataca_enano=false;
+    boolean ataca_humano=false;
     public static String eleccion;
 
 
@@ -68,8 +72,12 @@ public class recreacion extends JFrame{
 
         @Override
         public void keyPressed(KeyEvent e) {
-
+            
             if(e.getKeyCode()==KeyEvent.VK_UP){
+                ataca_orco=false;
+                ataca_humano=false;
+                ataca_elfo=false;
+                ataca_enano=false;
                 img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_arriba.png"));
 
                     Incremento++;
@@ -87,6 +95,10 @@ public class recreacion extends JFrame{
 
 
             if(e.getKeyCode()==KeyEvent.VK_DOWN){
+                ataca_orco=false;
+                ataca_humano=false;
+                ataca_elfo=false;
+                ataca_enano=false;
                 img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_abajo.png"));
 
                     Incremento++;
@@ -103,6 +115,10 @@ public class recreacion extends JFrame{
             }
             
             if(e.getKeyCode()==KeyEvent.VK_RIGHT){
+                ataca_orco=false;
+                ataca_humano=false;
+                ataca_elfo=false;
+                ataca_enano=false;
                 img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_derecha.png"));
                 Incremento++;
 
@@ -118,7 +134,11 @@ public class recreacion extends JFrame{
 
             }
             
-            if(e.getKeyCode()==KeyEvent.VK_LEFT){					
+            if(e.getKeyCode()==KeyEvent.VK_LEFT){
+                ataca_orco=false;
+                ataca_humano=false;
+                ataca_elfo=false;
+                ataca_enano=false;
                 img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_izquierda.png"));
                 Incremento++;
 
@@ -136,6 +156,19 @@ public class recreacion extends JFrame{
             
             if(e.getKeyCode()==KeyEvent.VK_C){					
                 img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_ataca.png"));
+                
+                if(eleccion == "Orco"){
+                    ataca_orco=true;
+                }
+                if (eleccion == "Elfo") {
+                    ataca_elfo = true;
+                }
+                if (eleccion == "Humano") {
+                    ataca_humano = true;
+                }
+                if (eleccion == "Enano") {
+                    ataca_enano = true;
+                }
                 Incremento=Incremento+5;
                 if(Incremento>5){
                         Incremento = 0;
@@ -150,13 +183,44 @@ public class recreacion extends JFrame{
 
 
     @Override
-    public void paint(Graphics g) {        
+    public void paint(Graphics g) {    
+        
         g.drawImage(bi,0,0,null);
-        int mxA = (Incremento%6)*64;
-        int myA = (Incremento/6)*52;
-        g2d = bi.createGraphics();
-        g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
-        g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+64, myA+52, this);
+        int mxA = (Incremento%5)*64;
+        int myA = (Incremento/5)*52;
+        
+        if(ataca_orco==true){
+            mxA = (Incremento%6)*112;
+            myA = (Incremento/6)*52;
+            g2d = bi.createGraphics();
+            g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
+            g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+112, myA+52, this);
+        }else if(ataca_elfo==true){
+            mxA = (Incremento%6)*64;
+            myA = (Incremento/6)*52;
+            g2d = bi.createGraphics();
+            g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
+            g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+64, myA+52, this);
+        }else if(ataca_humano==true){
+            mxA = (Incremento%6)*96;
+            myA = (Incremento/6)*52;
+            g2d = bi.createGraphics();
+            g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
+            g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+96, myA+52, this);
+        }else if(ataca_enano==true){
+            mxA = (Incremento%6)*64;
+            myA = (Incremento/6)*52;
+            g2d = bi.createGraphics();
+            g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
+            g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+64, myA+52, this);
+        }else{
+            mxA = (Incremento % 5) * 64;
+            myA = (Incremento / 5) * 52;
+            g2d = bi.createGraphics();
+            g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
+            g2d.drawImage(img, incx - 25, incy - 25, 50 + incx, 50 + incy, mxA, myA, mxA + 64, myA + 52, this);
+        }
+                               
         repaint();
     }
 
