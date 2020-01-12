@@ -194,7 +194,7 @@ public class recreacion extends JFrame{
             myA = (Incremento/6)*52;
             g2d = bi.createGraphics();
             g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
-            g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+112, myA+52, this);
+            g2d.drawImage(img, incx-40, incy-25, 90+incx, 50+incy, mxA, myA, mxA+112, myA+52, this);
         }else if(ataca_elfo==true){
             mxA = (Incremento%6)*64;
             myA = (Incremento/6)*52;
@@ -202,17 +202,17 @@ public class recreacion extends JFrame{
             g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
             g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+64, myA+52, this);
         }else if(ataca_humano==true){
-            mxA = (Incremento%6)*96;
+            mxA = (Incremento%6)*128;
             myA = (Incremento/6)*52;
             g2d = bi.createGraphics();
             g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
-            g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+96, myA+52, this);
+            g2d.drawImage(img, incx-24, incy-23, 145+incx, 50+incy, mxA, myA, mxA+128, myA+52, this);
         }else if(ataca_enano==true){
             mxA = (Incremento%6)*64;
             myA = (Incremento/6)*52;
             g2d = bi.createGraphics();
             g2d.fillRect(0, 0, AnchoVentana, AltoVentana);
-            g2d.drawImage(img, incx-25, incy-25, 50+incx, 50+incy, mxA, myA, mxA+64, myA+52, this);
+            g2d.drawImage(img, incx-10, incy-25, 62+incx, 50+incy, mxA, myA, mxA+64, myA+52, this);
         }else{
             mxA = (Incremento % 5) * 64;
             myA = (Incremento / 5) * 52;
