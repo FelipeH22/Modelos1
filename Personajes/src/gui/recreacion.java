@@ -73,17 +73,11 @@ public class recreacion extends JFrame{
         public void keyPressed(KeyEvent e) {
             
             if(e.getKeyCode()==KeyEvent.VK_UP){
-                ataca_orco=false;
-                ataca_humano=false;
-                ataca_elfo=false;
-                ataca_enano=false;
                 img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_arriba.png"));
-
-                    Incremento++;
-
-                    if(Incremento>4){
-                        Incremento = 0;
-                    }
+                Incremento++;
+                if(Incremento>4){
+                    Incremento = 0;
+                }
                 if(arriba==true){
                     incy = incy-4;
                     if(incy<20){
@@ -94,17 +88,11 @@ public class recreacion extends JFrame{
 
 
             if(e.getKeyCode()==KeyEvent.VK_DOWN){
-                ataca_orco=false;
-                ataca_humano=false;
-                ataca_elfo=false;
-                ataca_enano=false;
                 img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_abajo.png"));
-
-                    Incremento++;
-
-                    if(Incremento>4){
-                            Incremento = 0;
-                    }
+                Incremento++;
+                if(Incremento>4){
+                        Incremento = 0;
+                }
                 if(abajo==true){
                     incy = incy+4;
                     if(incy>getHeight()-40){
@@ -114,13 +102,8 @@ public class recreacion extends JFrame{
             }
             
             if(e.getKeyCode()==KeyEvent.VK_RIGHT){
-                ataca_orco=false;
-                ataca_humano=false;
-                ataca_elfo=false;
-                ataca_enano=false;
                 img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_derecha.png"));
                 Incremento++;
-
                 if(Incremento>4){
                         Incremento = 0;
                 }
@@ -134,14 +117,8 @@ public class recreacion extends JFrame{
             }
             
             if(e.getKeyCode()==KeyEvent.VK_LEFT){
-                ataca_orco=false;
-                ataca_humano=false;
-                ataca_elfo=false;
-                ataca_enano=false;
                 img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_izquierda.png"));
                 Incremento++;
-
-
                 if(Incremento>4){
                         Incremento = 0;
                 }
@@ -156,16 +133,16 @@ public class recreacion extends JFrame{
             if(e.getKeyCode()==KeyEvent.VK_C){					
                 img = h.getImage(this.getClass().getResource("/assets/"+eleccion+"_ataca.png"));
                 
-                if(eleccion == "Orco"){
+                if("Orco".equals(eleccion)){
                     ataca_orco=true;
                 }
-                if (eleccion == "Elfo") {
+                if ("Elfo".equals(eleccion)) {
                     ataca_elfo = true;
                 }
-                if (eleccion == "Humano") {
+                if ("Humano".equals(eleccion)) {
                     ataca_humano = true;
                 }
-                if (eleccion == "Enano") {
+                if ("Enano".equals(eleccion)) {
                     ataca_enano = true;
                 }
                 Incremento=Incremento+5;
@@ -225,7 +202,7 @@ public class recreacion extends JFrame{
 
 
     public static void inicia() {
-        new recreacion().setVisible(true);            
+        new recreacion().setVisible(true);           
     }
 
 }

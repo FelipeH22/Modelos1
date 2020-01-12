@@ -2,7 +2,6 @@
 package gui;
 import Personajes.AbstractFactory;
 import fabricas.*;
-import javax.swing.*;
 /**
  *
  * @author estudiantes
